@@ -1,0 +1,126 @@
+# Markdown Todo
+✔ Criar projeto padrão com express-generator @done (04/06/2020 22:34:25)
+✔ instalar as dependências @done (04/06/2020 22:34:54)
+✔ instalar sequelize @done (04/06/2020 22:39:35)
+- npm install express mysql2 sequelize dotenv
+- npm install nodemon sequelize-cli -D
+
+✔ Configurar variáveis .env @done (04/06/2020 22:39:55)
+✔ Configurar sequelize @done (04/06/2020 22:42:47)
+- .sequelizerc
+- npx sequelize init:model
+
+✔ Criar banco de dados @done (04/06/2020 22:45:26)
+- tabela users
+- tabela coments 
+- tabela likes
+- tabela posts
+
+✔ Criar models @done (04/06/2020 22:48:32)
+- instalar mysql2 -g (global)
+- instalar sequelize-auto-v2 -g (global)
+- Utilizar o sequelize-auto para gerar as models direto do banco de dados
+- sequelize-auto -o "./models" -d nomeDoShema -h localhost -u usuarioDaConexao -p 3306 -x senhaDaConexao -e mysql
+- Em windows pode ocorrer erro de autorização (executar o comando: Set-ExecutionPolicy RemoteSigned) utilizar powershell como admin
+
+✔ Ajustar model @done (04/06/2020 22:52:15)
+- Singular
+- Capitalize
+
+✔ Criar migrations @done (04/06/2020 22:52:38)
+✔ Criar seeders @done (05/06/2020 00:47:14)
+- faker (npm gera dados randômicos)
+- moment (npm formata datas)
+
+✔ Criar rota pública para salvar um novo usuário @done (04/06/2020 22:57:45)
+✔ Criar método editar usuário @done (04/06/2020 22:53:56)
+✔ Criar método excluir usuário @done (04/06/2020 22:54:28)
+✔ Criar método listar todos os usuários, aceitando limite como query (?limit=?) @done (04/06/2020 23:16:59)
+✔ Criar método buscar usuário por nome @done (04/06/2020 23:27:25)
+✔ Criar método buscar usuário por id @done(20-06-05 22:49)
+✔ Criar comentController @done (05/06/2020 23:15:01)
+✔ Criar método listar comentários, aceitando limite como query (?limit=?) @done (05/06/2020 23:15:03)
+✔ Criar método salvar comentários @done(20-06-06 22:45)
+✔ Criar método excluir comentário por id @done (06/06/2020 23:00:35)
+✔ Criar método editar comentário por id @done (06/06/2020 23:07:21)
+✔ Criar relacionamento de comentário com usuário e postagem @done(20-06-06 23:38)
+✔ Criar postController @done (06/06/2020 23:53:46)
+✔ Criar método salvar postagem @done (06/06/2020 23:53:47)
+✔ Criar método listar postagem, aceitando limite como query (?limit=?) @done (07/06/2020 00:54:49)
+- Include de comentários
+- Include de usuário que comentou
+- Include de usuário que realizou a postagem
+✔ Criar método buscar postagem por id @done (08/06/2020 22:22:36)
+✔ Criar método editar postagem por id @done (08/06/2020 22:28:24)
+✔ Criar método excluir postagem por id @done (08/06/2020 22:57:12)
+✔ Criar método salvar/excluir like @done (08/06/2020 23:19:17)
+- Verificar se o usuário que está curtindo já possuim um like (Se sim -> unlike)
+
+✔ Implementar followers @done (11/06/2020 23:07:21)
+- Criar tabela no banco de dados 
+- Criar model 
+- Criar migration
+- Criar seeder
+
+✔ Refatorar a listagem de postagens (listar apenas postagens do próprio usuário e as de quem o usuário é seguidor) @done (11/06/2020 23:56:50)
+✔ Criar controller e método (follow and unfollow) @done (12/06/2020 15:02:22)
+- Se o usuário já for seguidor deixar de seguir, caso contrário seguir
+✔ Criar método listar seguidores @done (12/06/2020 16:06:55)
+✔ Criar método listar quem o usuário está seguindo @done (12/06/2020 16:06:57)
+
+✔ Implementar troca de mensagens @done (12/06/2020 23:49:12)
+- Criar tabela no banco de dados 
+- Criar model 
+- Criar migration
+- Criar seeder
+
+✔ Implementar notificações @done (13/06/2020 01:00:36)
+- Criar tabela no banco de dados 
+- Criar model 
+- Criar migration
+- Criar seeder
+
+✔ Criar método de notificações @done (13/06/2020 20:00:21)
+- listar
+- marcar como lida
+- excluir 
+
+✔ Aplicar controle de acesso @done (13/06/2020 21:23:03)
+- Apenas o usuário que criou uma postagem pode editar e deletar a mesma
+- Apenas o usuário que criou o seu cadastro pode editar e excluir o mesmo
+- Apenas o usuário que criou um comentário pode editar e excluir o mesmo
+- Apenas o usuário que começou a seguir um usuário pode deixar de seguir o mesmo
+- Apenas o usuário que curtiu uma publicação pode desfazer o mesmo
+- Apenas o usuário que recebeu a notificação pode excluir ou marcar como lida
+
+- Implementar validações
+✔ Validar dados obrigatórios para salvar usuários @done (13/06/2020 22:23:46)
+- nome
+- email
+- senha
+
+✔ Validar dados obrigatórios para salvar postagem @done (13/06/2020 22:23:48)
+- imagem 
+
+✔ Validar dados obrigatórios para salvar comentário @done (13/06/2020 22:23:52)
+- texto
+- id da postagem
+
+✔ Implementar upload de imagem (multer) @done (13/06/2020 22:48:11)
+- ao salvar/editar usuário 
+- ao salvar/editar uma postagem 
+
+✔ Ao editar a imagem de um usuário validar se o mesmo já possui uma imagem no servidor e apagá-la para salvar a nova @done (14/06/2020 00:41:52)
+✔ Ao editar uma imagem da postagem apagar a anterior @done (14/06/2020 00:41:54)
+
+✔ Implementar cors @done (14/06/2020 00:45:26)
+✔ Implementar jwt @done (15/06/2020 12:21:36)
+- Criar uma chave hash para o token em .env
+- Ao salvar um usuário gerar um token 
+- Definir validade do token de 2 dias
+- Solicitar que o cliente envie o token via header para validar acesso
+- Criar middleware para autenticar as rotas 
+- Para validar o login solicitar que o cliente passe os dados (email e senha) de forma criptografada no headers
+
+✔ Implementar express-brute para bloquear cyber ataques de ping à api @done (15/06/2020 13:03:12)
+✔ Implementar helmet para ocultar a tecnologia utilizada (cabeçalho enviado para o cliente) @done (15/06/2020 13:16:41)
